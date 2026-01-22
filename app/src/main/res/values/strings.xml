@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">PracticalTest02v10</string>
+
+    <string name="server_label">SERVER</string>
+    <string name="client_label">CLIENT</string>
+    <string name="port_hint">Port</string>
+    <string name="address_hint">Address</string>
+    <string name="pokemon_hint">Pokemon (e.g. pikachu)</string>
+    <string name="start_server_button">Start Server</string>
+    <string name="get_pokemon_button">Get Pokemon</string>
+    <string name="default_port">5000</string>
+    <string name="default_address">localhost</string>
+    <string name="types_label">Types:</string>
+    <string name="abilities_label">Abilities:</string>
+    <string name="pokemon_image_description">Pokemon image</string>
+</resources>
