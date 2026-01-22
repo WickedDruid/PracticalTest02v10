@@ -102,17 +102,17 @@ public class MainActivity extends AppCompatActivity {
         String pokemonName = pokemonNameEditText.getText().toString().trim();
 
         if (address.isEmpty()) {
-            Toast.makeText(this, "Please enter server address", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "enter server address", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (portStr.isEmpty()) {
-            Toast.makeText(this, "Please enter port number", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "enter port number", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (pokemonName.isEmpty()) {
-            Toast.makeText(this, "Please enter pokemon name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "enter pokemon name", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             port = Integer.parseInt(portStr);
         } catch (NumberFormatException e) {
-            Toast.makeText(this, "Invalid port number", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show();
             return;
         }
 

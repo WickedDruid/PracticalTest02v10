@@ -21,17 +21,17 @@ public class ServerThread extends Thread {
     public void run() {
         try {
             serverSocket = new ServerSocket(port);
-            Log.d(TAG, "Server started on port " + port);
+            Log.d(TAG, "Server started in port " + port);
 
             while (isRunning) {
                 Socket clientSocket = serverSocket.accept();
-                Log.d(TAG, "Client connected: " + clientSocket.getInetAddress());
+                Log.d(TAG, "Client connected on: " + clientSocket.getInetAddress());
 
                 CommunicationThread communicationThread = new CommunicationThread(clientSocket);
                 communicationThread.start();
             }
         } catch (IOException e) {
-            Log.e(TAG, "Server error: " + e.getMessage());
+            Log.e(TAG, "ERROR: " + e.getMessage());
         }
     }
 

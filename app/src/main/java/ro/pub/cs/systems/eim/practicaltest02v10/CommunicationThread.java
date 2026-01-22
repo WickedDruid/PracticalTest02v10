@@ -37,12 +37,12 @@ public class CommunicationThread extends Thread {
                 String response = fetchPokemonData(pokemonName.toLowerCase().trim());
                 writer.println(response);
             } else {
-                writer.println("ERROR:Invalid pokemon name");
+                writer.println("ERROR");
             }
 
             clientSocket.close();
         } catch (IOException e) {
-            Log.e(TAG, "Communication error: " + e.getMessage());
+            Log.e(TAG, "CERROR" + e.getMessage());
         }
     }
 
@@ -70,7 +70,6 @@ public class CommunicationThread extends Thread {
 
                 JSONObject jsonObject = new JSONObject(jsonResponse.toString());
 
-                // Extract types
                 JSONArray typesArray = jsonObject.getJSONArray("types");
                 StringBuilder types = new StringBuilder();
                 for (int i = 0; i < typesArray.length(); i++) {
@@ -80,7 +79,6 @@ public class CommunicationThread extends Thread {
                     types.append(type.getString("name"));
                 }
 
-                // Extract abilities
                 JSONArray abilitiesArray = jsonObject.getJSONArray("abilities");
                 StringBuilder abilities = new StringBuilder();
                 for (int i = 0; i < abilitiesArray.length(); i++) {
@@ -90,11 +88,9 @@ public class CommunicationThread extends Thread {
                     abilities.append(ability.getString("name"));
                 }
 
-                // Extract sprite URL
                 JSONObject sprites = jsonObject.getJSONObject("sprites");
                 String spriteUrl = sprites.optString("front_default", "");
 
-                // Format response: types|abilities|spriteUrl
                 result.append(types.toString())
                         .append("|")
                         .append(abilities.toString())
@@ -102,10 +98,10 @@ public class CommunicationThread extends Thread {
                         .append(spriteUrl);
 
             } else {
-                result.append("ERROR:Pokemon not found");
+                result.append("ERROR");
             }
         } catch (Exception e) {
-            Log.e(TAG, "Error fetching pokemon data: " + e.getMessage());
+            Log.e(TAG, "Error" + e.getMessage());
             result.append("ERROR:").append(e.getMessage());
         } finally {
             if (connection != null) {
